@@ -1,0 +1,47 @@
+<!-- 
+Password Box
+Confirm Password Box
+Sign Up Button
+
+8 Letter Check (under Password Box - adds a check symbol when matched)
+Special Symbol (under Password Box - adds a check symbol when matched)
+Uppercase Check (under Password Box - adds a check symbol when matched)
+Lowercase Check (under Password Box - adds a check symbol when matched)
+Number Check (under Password Box - adds a check symbol when matched)
+Confirm Password (sign up button becomes clickable after confirmation)
+
+Proper Alignment (middle of screen & spacing)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Password Security</title>
+        <link href="dist/output.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="grid place-items-center py-65">
+            <h1 class="font-bold text-lg -my-10 text-md">Sign Up</h1>
+            <div class="pt-10">
+                <input type="text" id="password" class="border px-2 rounded-md text-sm py-0.5" placeholder="Password">
+                <h1 class="pt-3 text-sm">8 Letters</h1>
+                <h1 class="my-1 text-sm">Special Symbol</h1>
+                <h1 class="my-1 text-sm">Uppercase</h1>
+                <h1 class="my-1 text-sm">Lowercase</h1>
+                <h1 class="my-1 text-sm">Number Check</h1>
+                <input type="text" id="password" class="border my-2 px-2 py-0.5 rounded-md text-sm" placeholder="Confirm Password">
+            </div>
+            <div class="pt-4">
+                <button type="button" id="sign-up" class="border rounded-md px-2 py-0.5 bg-gray-200 text-sm hover:bg-gray-300">Button</button>
+            </div>
+        </div>
+    </body>
+</html>
+
+<!--
+<input type="letters" id="raw-password"></input>
+<button type="button" id="sign-up">Sign Up</button>
+-->

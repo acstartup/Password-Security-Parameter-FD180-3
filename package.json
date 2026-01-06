@@ -1,0 +1,25 @@
+{
+  "name": "password-security-parameter-fd180-3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acstartup/Password-Security-Parameter-FD180-3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acstartup/Password-Security-Parameter-FD180-3/issues"
+  },
+  "homepage": "https://github.com/acstartup/Password-Security-Parameter-FD180-3#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "tailwindcss": "^4.1.18"
+  }
+}
