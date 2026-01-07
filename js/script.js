@@ -1,22 +1,5 @@
 /*
-Password Box
-Confirm Password Box
-Sign Up Button
-
-8 Letter Check (under Password Box - adds a check symbol when matched)
-Special Symbol (under Password Box - adds a check symbol when matched)
-Uppercase Check (under Password Box - adds a check symbol when matched)
-Lowercase Check (under Password Box - adds a check symbol when matched)
-Number Check (under Password Box - adds a check symbol when matched)
-Confirm Password (sign up button becomes clickable after confirmation)
-
-Alert on Sign Up success
-Alert when empty
-Alert when doesn't meet all requirementsd (dynamic based on what parameters aren't met)
-
 Optional: Reveal/Hide Password Button, Default type="password"
-
-Clean Code!
 */
 
 let signUp = document.getElementById("sign-up");
@@ -27,6 +10,7 @@ let symbol = document.getElementById("symbol");
 let upper = document.getElementById("upper");
 let lower = document.getElementById("lower");
 let number = document.getElementById("number");
+let text = "";
 
 function constantPasswordChecker() {
     password.classList.add("border-2");
@@ -36,9 +20,10 @@ function constantPasswordChecker() {
     lowercaseCheck();
     numbersCheck();
     password.classList.remove("border-2");
+    text="";
 }
 
-function confirmPasswordMatch() {
+function confirmPasswordMatch() { // need to add alert when they don't match
     confirmPassword.classList.add("border-2", "outline-black")
     confirmPassword.classList.remove("border", "outline-green-500", "border-green-500", "outline-red-500", "border-red-500", "outline-black");
     if (password.value === confirmPassword.value) {
@@ -52,11 +37,21 @@ function confirmPasswordMatch() {
 }
 
 function buttonPasswordCheck() {
-    if ((atleast8char()) && (specialSymbol()) && (uppercaseCheck()) && (lowercaseCheck()) && (numbersCheck()) && (confirmPasswordMatch())) {
-        alert("Sign Up Successful")
+    text = "";
+    atleast8char();
+    specialSymbol();
+    uppercaseCheck();
+    lowercaseCheck();
+    numbersCheck();
+    if (text !== "") {
+        alert(`Sign Up Unsuccessful: \n ${text} \n`); // must use ` to utilize variables inside "", \n is for entering next row
     }
-    else {
-        alert("Sign Up Unsuccessful")
+    else if (password.value !== confirmPassword.value) {
+        text += "Confirm Invalid"; // Unseen, for successful text detection
+        alert(`Sign Up Unsuccessful:\n\nPassword must match Confirm Password`);
+    }
+    if (text === "") {
+        alert("Sign Up Successful");
     }
 }
 
@@ -70,6 +65,7 @@ function atleast8char() {
     else {
         char.classList.add("text-red-500");
         char.textContent = "✗ At least 8 characters";
+        text += `\n ✗ At least 8 characters`;
         return false;
     }
 }
@@ -84,6 +80,7 @@ function specialSymbol() {
     else {
         symbol.classList.add("text-red-500");
         symbol.textContent = "✗ Special symbol (@,!,$,etc...)";
+        text += `\n ✗ Special symbol (@,!,$,etc...)`; // utilize `` to have \n be an enter command for each row
         return false;
     }
 }
@@ -98,6 +95,7 @@ function uppercaseCheck() {
     else {
         upper.classList.add("text-red-500");
         upper.textContent = "✗ Uppercase letter (A-Z)";
+        text += `\n ✗ Uppercase letter (A-Z)`;
         return false;
     }
 }
@@ -112,6 +110,7 @@ function lowercaseCheck() {
     else {
         lower.classList.add("text-red-500");
         lower.textContent = "✗ Lowercase letter (a-z)";
+        text += `\n ✗ Lowercase letter (a-z)`;
         return false;
     }
 }
@@ -126,6 +125,7 @@ function numbersCheck() {
     else {
         number.classList.add("text-red-500");
         number.textContent = "✗ Number (0-9)";
+        text += `\n ✗ Number (0-9)`;
         return false;
     }
 }
