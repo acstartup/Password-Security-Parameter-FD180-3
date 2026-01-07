@@ -24,6 +24,7 @@ let password = document.getElementById("password");
 let confirmPassword = document.getElementById("confirm-password");
 let char = document.getElementById("atleast-8char");
 let symbol = document.getElementById("symbol");
+let upper = document.getElementById("upper");
 let interval;
 
 function constantPasswordChecker() {
@@ -56,7 +57,7 @@ function atleast8char() {
 
 function specialSymbol() {
     symbol.classList.remove("text-green-500", "text-red-500");
-    if (password.value.replace(/[^a-zA-Z0-9\s-_]/g, '') !== password.value) {
+    if (password.value.replace(/[^a-zA-Z0-9\s-_]/, '') !== password.value) { // removes special symbols, if it is same, there are no special symbols
         symbol.classList.toggle("text-green-500");
         symbol.textContent = "✓ One special symbol (@,!,$,etc...)";
     }
@@ -67,7 +68,15 @@ function specialSymbol() {
 }
 
 function uppercaseCheck() {
-
+    upper.classList.remove("text-green-500", "text-red-500");
+    if (password.value.replace(/[A-Z]/) !== password.value) {
+        upper.classList.toggle("text-green-500");
+        upper.textContent = "✓ One uppercase letter (A-Z)";
+    } 
+    else {
+        upper.classList.toggle("text-red-500");
+        upper.textContent = "✗ One uppercase letter (A-Z)";
+    }
 }
 
 function lowercaseCheck() {
