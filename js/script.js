@@ -26,6 +26,7 @@ let char = document.getElementById("atleast-8char");
 let symbol = document.getElementById("symbol");
 let upper = document.getElementById("upper");
 let lower = document.getElementById("lower");
+let number = document.getElementById("number");
 
 function constantPasswordChecker() {
     atleast8char();
@@ -46,11 +47,11 @@ function buttonPasswordCheck() {}
 function atleast8char() {
     char.classList.remove("text-green-500", "text-red-500");
     if (password.value.length >= 8) {
-        char.classList.toggle("text-green-500");
+        char.classList.add("text-green-500");
         char.textContent = "✓ At least 8 characters";
     }
     else {
-        char.classList.toggle("text-red-500");
+        char.classList.add("text-red-500");
         char.textContent = "✗ At least 8 characters";
     }
 }
@@ -58,41 +59,49 @@ function atleast8char() {
 function specialSymbol() {
     symbol.classList.remove("text-green-500", "text-red-500");
     if (password.value.replace(/[^a-zA-Z0-9\s-_]/, '') !== password.value) { // removes special symbols, if it is same, there are no special symbols
-        symbol.classList.toggle("text-green-500");
-        symbol.textContent = "✓ One special symbol (@,!,$,etc...)";
+        symbol.classList.add("text-green-500");
+        symbol.textContent = "✓ Special symbol (@,!,$,etc...)";
     }
     else {
-        symbol.classList.toggle("text-red-500");
-        symbol.textContent = "✗ One special symbol (@,!,$,etc...)";
+        symbol.classList.add("text-red-500");
+        symbol.textContent = "✗ Special symbol (@,!,$,etc...)";
     }
 }
 
 function uppercaseCheck() {
     upper.classList.remove("text-green-500", "text-red-500");
     if (password.value.replace(/[A-Z]/) !== password.value) {
-        upper.classList.toggle("text-green-500");
-        upper.textContent = "✓ One uppercase letter (A-Z)";
+        upper.classList.add("text-green-500");
+        upper.textContent = "✓ Uppercase letter (A-Z)";
     } 
     else {
-        upper.classList.toggle("text-red-500");
-        upper.textContent = "✗ One uppercase letter (A-Z)";
+        upper.classList.add("text-red-500");
+        upper.textContent = "✗ Uppercase letter (A-Z)";
     }
 }
 
 function lowercaseCheck() {
     lower.classList.remove("text-green-500", "text-red-500");
     if (password.value.replace(/[a-z]/) !== password.value) {
-        lower.classList.toggle("text-green-500");
-        lower.textContent = "✓ One lowercase letter (a-z)";
+        lower.classList.add("text-green-500");
+        lower.textContent = "✓ Lowercase letter (a-z)";
     }
     else {
-        lower.classList.toggle("text-red-500");
-        lower.textContent = "✗ One uppercase letter (A-Z)";
+        lower.classList.add("text-red-500");
+        lower.textContent = "✗ Lowercase letter (a-z)";
     }
 }
 
 function numbersCheck() {
-
+    number.classList.remove("text-green-500", "text-red-500");
+    if (password.value.replace(/[0-9]/) !== password.value) {
+        number.classList.add("text-green-500");
+        number.textContent = "✓ Number (0-9)";
+    }
+    else {
+        number.classList.add("text-red-500");
+        number.textContent = "✗ Number (0-9)";
+    }
 }
 
 password.addEventListener("input", constantPasswordChecker) // checks everytime there is input into password
