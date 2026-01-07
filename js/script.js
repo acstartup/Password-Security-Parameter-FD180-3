@@ -29,21 +29,24 @@ let lower = document.getElementById("lower");
 let number = document.getElementById("number");
 
 function constantPasswordChecker() {
+    password.classList.add("border-2");
     atleast8char();
     specialSymbol();
     uppercaseCheck();
     lowercaseCheck();
     numbersCheck();
+    password.classList.remove("border-2");
 }
 
 function confirmPasswordMatch() {
-    confirmPassword.classList.remove("border", "border-green-500", "border-red-500");
+    confirmPassword.classList.add("border-2", "outline-black")
+    confirmPassword.classList.remove("border", "outline-green-500", "border-green-500", "outline-red-500", "border-red-500", "outline-black");
     if (password.value === confirmPassword.value) {
-        confirmPassword.classList.add("border-2", "border-green-500");
+        confirmPassword.classList.add("border-2", "outline-green-500", "border-green-500");
         return true;
     }
     else {
-        confirmPassword.classList.add("border-2", "border-red-500");
+        confirmPassword.classList.add("border-2", "outline-red-500", "border-red-500");
         return false;
     }
 }

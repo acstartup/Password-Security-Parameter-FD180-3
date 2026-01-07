@@ -15,6 +15,7 @@
     --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-gray-400: oklch(70.7% 0.022 261.325);
+    --color-black: #000;
     --spacing: 0.25rem;
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
@@ -298,9 +299,16 @@
     border-style: var(--tw-border-style);
     border-width: 4px;
   }
+  .border-22 {
+    border-style: var(--tw-border-style);
+    border-width: 22px;
+  }
   .border-b {
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
+  }
+  .border-black {
+    border-color: var(--color-black);
   }
   .border-green-500 {
     border-color: var(--color-green-500);
@@ -410,6 +418,23 @@
   .uppercase {
     text-transform: uppercase;
   }
+  .outline-2 {
+    outline-style: var(--tw-outline-style);
+    outline-width: 2px;
+  }
+  .outline-black {
+    outline-color: var(--color-black);
+  }
+  .outline-green-500 {
+    outline-color: var(--color-green-500);
+  }
+  .outline-red-500 {
+    outline-color: var(--color-red-500);
+  }
+  .outline-none {
+    --tw-outline-style: none;
+    outline-style: none;
+  }
   .hover\:bg-gray-300 {
     &:hover {
       @media (hover: hover) {
@@ -434,11 +459,17 @@
   syntax: "*";
   inherits: false;
 }
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
       --tw-border-style: solid;
       --tw-font-weight: initial;
+      --tw-outline-style: solid;
     }
   }
 }
