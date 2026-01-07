@@ -22,7 +22,8 @@ Clean Code!
 let signUp = document.getElementById("sign-up");
 let password = document.getElementById("password");
 let confirmPassword = document.getElementById("confirm-password");
-let char = document.getElementById("atleast-8char")
+let char = document.getElementById("atleast-8char");
+let symbol = document.getElementById("symbol");
 let interval;
 
 function constantPasswordChecker() {
@@ -54,7 +55,15 @@ function atleast8char() {
 }
 
 function specialSymbol() {
-
+    symbol.classList.remove("text-green-500", "text-red-500");
+    if (password.value.replace(/[^a-zA-Z0-9\s-_]/g, '') !== password.value) {
+        symbol.classList.toggle("text-green-500");
+        symbol.textContent = "✓ One special symbol (@,!,$,etc...)";
+    }
+    else {
+        symbol.classList.toggle("text-red-500");
+        symbol.textContent = "✗ One special symbol (@,!,$,etc...)";
+    }
 }
 
 function uppercaseCheck() {
